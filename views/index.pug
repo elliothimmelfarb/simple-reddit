@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+  meta(charset="UTF-8")
+  title Simple Reddit
+
+  script(src="/bower_components/jquery/dist/jquery.min.js")
+  script(src="/bower_components/moment/moment.js")
+  script(src="main.js")
+
+body
+  h1 Simple Reddit
+
+  form.newPostForm
+    h2 New Post
+    input.text(placeholder="Post Text", required)
+    button Add Post
+
+  ul
+    each post in posts
+      li(data-id=post.id) #{post.createdAt} - #{post.text}
