@@ -6,11 +6,29 @@ function init() {
   renderPosts();
   $('.newPostForm').submit(createPost);
   $('.displayArea').on('click', '.upvote', upvote);
+  $('.displayArea').on('click', '.downvote', downvote);
 }
 
 function upvote() {
   let id = $(this).parent().parent().data('id');
+  let $score = $(this).parent().parent().find('.score');
+  $.ajax({
+    url: `/posts/${id}/upvote`,
+    method: 'PUT'
+  });
+  let score = parseInt($score.text());
+  $score.text(score + 1);
+}
 
+function downvote() {
+  let id = $(this).parent().parent().data('id');
+  let $score = $(this).parent().parent().find('.score');
+  $.ajax({
+    url: `/posts/${id}/downvote`,
+    method: 'PUT'
+  });
+  let score = parseInt($score.text());
+  $score.text(score - 1);
 }
 
 function createPost(event) {
@@ -30,7 +48,6 @@ function createPost(event) {
 function renderPosts() {
   $.get('/posts')
     .done(posts => {
-      console.log(posts);
       let $postCards = posts.map(post => {
         let $card = $('.template').clone()
         $card.removeClass('template');

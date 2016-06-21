@@ -28,19 +28,11 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id/upvote', (req, res) => {
-  Post.upvote(req.params.id)
-    .then()
-    .catch(err => {
-      console.log(err);
-    })
+  Post.upvote(req.params.id);
 })
 
 router.put('/:id/downvote', (req, res) => {
-  Post.downvote(req.params.id)
-    .then()
-    .catch(err => {
-      console.log(err);
-    })
+  Post.downvote(req.params.id);
 })
 
 

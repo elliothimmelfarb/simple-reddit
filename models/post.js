@@ -47,13 +47,17 @@ exports.create = postObj => {
 };
 
 exports.upvote = id => {
-  db.get('select score from posts where id = ?', id, (err, score) => {
-    return new Promise((resolve, reject) => {
-      if (err) return reject(err);
-      return resolve(score);
-    });
+  db.get('select score from posts where id = ?', id, (err, scoreObj) => {
+    db.run('update posts set score = ? where id = ?', scoreObj.score + 1, id, err => {
+      if (err) console.log(err);
+    })
   })
-  .done(score => {
-    console.log(score);
+};
+
+exports.downvote = id => {
+  db.get('select score from posts where id = ?', id, (err, scoreObj) => {
+    db.run('update posts set score = ? where id = ?', scoreObj.score - 1, id, err => {
+      if (err) console.log(err);
+    })
   })
 };

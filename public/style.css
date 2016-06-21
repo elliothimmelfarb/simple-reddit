@@ -37,6 +37,20 @@ p.createdAt {
   font-size: 17px;
 }
 
+.right {
+  display: inline-block;
+}
+
+.icon {
+  margin-left: 16px;
+}
+
+.icondiv {
+  display: inline-block;
+  margin-top: 15px;
+  float: right;
+}
+
 .post:active
 .post:focus {
   outline: none;

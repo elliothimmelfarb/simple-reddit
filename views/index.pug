@@ -51,7 +51,8 @@ body
         form.newPostForm
           .form-group
             input.form-control.postContent(placeholder='Post Text...', required)
-            button.btn.btn-default.post(type='submit') Add a Post!  
+            button.btn.btn-default.post(type='submit') Add a Post!
+            p WARNING: It will break if you upvote or downvote too quickly!  
     .displayArea
     .templateArea.hidden
       
@@ -60,7 +61,8 @@ body
           .upvoteDiv
             button.upvote.btn.btn-default.arrowBtn
               i.glyphicon.glyphicon-arrow-up.arrow
-          .score 0
+          .scoreDiv 
+            span.score
           .downvoteDiv
             button.downvote.btn.btn-default.arrowBtn
               i.glyphicon.glyphicon-arrow-down.arrow     
