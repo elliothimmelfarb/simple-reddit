@@ -27,7 +27,7 @@ exports.getAll = () => {
 };
 
 exports.create = postObj => {
-  return new Promise(function(resolve, reject) {
+  return new Promise((resolve, reject) => {
     db.run('insert into posts values (?,?,?,?)',
       uuid(),
       moment().toISOString(),
@@ -44,4 +44,16 @@ exports.create = postObj => {
       }
     )
   });
+};
+
+exports.upvote = id => {
+  db.get('select score from posts where id = ?', id, (err, score) => {
+    return new Promise((resolve, reject) => {
+      if (err) return reject(err);
+      return resolve(score);
+    });
+  })
+  .done(score => {
+    console.log(score);
+  })
 };

@@ -1,0 +1,97 @@
+body {
+  text-align: center;
+}
+
+.post {
+  margin-top: 11px;
+}
+
+.inputArea {
+  padding: 1px 1px;
+  margin-bottom: 7px;
+}
+
+.postCard {
+  text-align: left;
+  padding: 1px 1px;
+  margin-bottom: 4px;
+}
+
+.arrowBtn {
+  padding: 0px;
+  background-color: transparent;
+  border-color: transparent;
+  outline: none;
+}
+
+.arrowBtn:hover {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+p.text {
+  margin-bottom: 0px;
+}
+
+p.createdAt {
+  font-size: 17px;
+}
+
+.post:active
+.post:focus {
+  outline: none;
+}
+
+.arrowBtn:hover,
+.arrowBtn:focus,
+.arrowBtn:active,
+.arrowBtn:visited {
+  outline: none;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+@media screen and (min-width: 768px)
+.postCard {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.scoreArea {
+  display: inline-block;
+  position: relative;
+  top: 4px;
+}
+
+.well {
+  display: inline-block;
+  margin-bottom: 1px;
+  margin-left: 20px;
+  padding: 9px;
+  position: relative;
+  bottom: 13px;
+  font-size: 21px;
+  width: auto;
+  box-shadow: darkgray;
+  background-color: #4a4a4a;
+  word-wrap: normal;
+}
+
+.score {
+  position: relative;
+  left: 4px;
+}
+
+.arrow {
+  position: relative;
+  right: 1px;
+  top: 2px;
+}
+
+.glyphicon-arrow-up:hover {
+  color: orange;
+}
+
+.glyphicon-arrow-down:hover {
+  color: blue;
+}

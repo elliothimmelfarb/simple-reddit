@@ -27,17 +27,20 @@ router.post('/', (req, res) => {
     });
 });
 
-//  PUT /posts/68df7fd1-44b5-42f4-b1cd-745d912b6871/upvote
-
-
 router.put('/:id/upvote', (req, res) => {
   Post.upvote(req.params.id)
     .then()
-
+    .catch(err => {
+      console.log(err);
+    })
 })
 
 router.put('/:id/downvote', (req, res) => {
-
+  Post.downvote(req.params.id)
+    .then()
+    .catch(err => {
+      console.log(err);
+    })
 })
 
 

@@ -3,19 +3,69 @@ html(lang="en")
 head
   meta(charset="UTF-8")
   title Simple Reddit
-
   script(src="/bower_components/jquery/dist/jquery.min.js")
+  script(src="/bower_components/bootstrap/dist/js/bootstrap.min.js")
   script(src="/bower_components/moment/moment.js")
   script(src="main.js")
-
+  link(rel='stylesheet', href='/bower_components/font-awesome/css/font-awesome.min.css')
+  link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+  link(rel="stylesheet", href="/bower_components/bootstrap/dist/css/Themes/bootstrap.min.css")
+  link(rel="stylesheet", href="style.css")
+  meta(name="viewport", content="width=device-width, initial-scale=1")
 body
-  h1 Simple Reddit
-
-  form.newPostForm
-    h2 New Post
-    input.text(placeholder="Post Text", required)
-    button Add Post
-
-  ul
-    each post in posts
-      li(data-id=post.id) #{post.createdAt} - #{post.text}
+  .container-fluid
+    nav.navbar.navbar-default
+      .container-fluid
+        .left
+          .navbar-header
+            a.navbar-brand(href="#")
+              p Built by Elliot Himmelfarb
+        .right
+          .icondiv
+            span.github.icon
+              a(href="https://github.com/elliothimmelfarb")
+                i(class="fa fa-github fa-2x" aria-hidden="true")
+            span.linkedin.icon
+              a(href="https://www.linkedin.com/in/elliot-himmelfarb-14347976")
+                i(class="fa fa-linkedin-square fa-2x" aria-hidden="true")
+            span.stack.icon
+              a(href="http://stackoverflow.com/users/6026912/elliot-himmelfarb")
+                i(class="fa fa-stack-overflow fa-2x" aria-hidden="true")
+            span.twitter.icon
+              a(href="https://twitter.com/e_himmelfarb")
+                i(class="fa fa-twitter-square fa-2x" aria-hidden="true")
+            span.fiddle.icon
+              a(href="https://jsfiddle.net/user/ellioth/fiddles/")
+                i(class="fa fa-jsfiddle fa-2x" aria-hidden="true")
+            span.codepen.icon
+              a(href="http://codepen.io/elliothimmelfarb/")
+                i(class="fa fa-codepen fa-2x" aria-hidden="true")
+            span.blog.icon
+              a(href="http://our-future-is-code.blogspot.com/")
+                i(class="fa fa-font fa-2x" aria-hidden="true")
+    
+    h1 Simple Reddit
+    .jumbotron.inputArea
+      h3 Make a Post:
+      .container
+        form.newPostForm
+          .form-group
+            input.form-control.postContent(placeholder='Post Text...', required)
+            button.btn.btn-default.post(type='submit') Add a Post!  
+    .displayArea
+    .templateArea.hidden
+      
+      .jumbotron.postCard.template
+        .scoreArea
+          .upvoteDiv
+            button.upvote.btn.btn-default.arrowBtn
+              i.glyphicon.glyphicon-arrow-up.arrow
+          .score 0
+          .downvoteDiv
+            button.downvote.btn.btn-default.arrowBtn
+              i.glyphicon.glyphicon-arrow-down.arrow     
+        .well.well-lg 
+          p.text 
+        p.createdAt 
+         
+  
