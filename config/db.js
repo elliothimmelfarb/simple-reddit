@@ -1,12 +1,14 @@
 'use strict';
 
-// config/db.js - Database configuration
+const mysql = require('mysql');
 
-const sqlite3 = require('sqlite3').verbose();
-const path = require('path');
+const db = mysql.createConnection(process.env.JAWSDB_URL || {
+  host: 'localhost',
+  user: 'root',
+  password: process.env.MYSQL_PASSWORD,
+  database: 'sreddit'
+});
 
-const dataPath = path.join(__dirname, '../data/data.db');
-
-const db = new sqlite3.Database(dataPath);
+db.connect();
 
 module.exports = db;

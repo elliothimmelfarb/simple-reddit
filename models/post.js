@@ -7,7 +7,7 @@ const db = require('../config/db');
 const uuid = require('uuid');
 const moment = require('moment');
 
-db.run(`create table if not exists posts(
+db.query(`create table if not exists posts(
   id TEXT,
   createdAt TEXT,
   text TEXT,
@@ -16,7 +16,7 @@ db.run(`create table if not exists posts(
 
 exports.getAll = () => {
   return new Promise(function(resolve, reject) {
-    db.all('select * from posts', function(err, posts) {
+    db.query('select * from posts', function(err, posts) {
       if(err) {
         reject(err);
       } else {
@@ -28,18 +28,17 @@ exports.getAll = () => {
 
 exports.create = postObj => {
   return new Promise((resolve, reject) => {
-    db.run('insert into posts values (?,?,?,?)',
-      uuid(),
-      moment().toISOString(),
-      postObj.text,
-      0,
-      function(err) {
+
+    postObj.id = uuid();
+    postObj.createdAt = moment().toISOString();
+    postObj.score = 0;
+
+    db.query('insert into posts set ?', postObj, (err) => {
         if(err) return reject(err);
 
-        db.get('select * from posts order by createdAt desc limit 1', function(err, post) {
+        db.query('select * from posts order by createdAt desc limit 1', (err, posts) => {
           if(err) return reject(err);
-
-          resolve(post);
+          resolve(posts[0]);
         });
       }
     )
@@ -47,17 +46,18 @@ exports.create = postObj => {
 };
 
 exports.upvote = id => {
-  db.get('select score from posts where id = ?', id, (err, scoreObj) => {
-    db.run('update posts set score = ? where id = ?', scoreObj.score + 1, id, err => {
-      if (err) console.log(err);
-    })
-  })
+  return new Promise((resolve, reject) => {
+    db.query(`update posts set score = score + 1 where id = ?`, id, (err, result) => {
+      if(err) return reject(err);
+      resolve();
+    });
+  });
 };
-
 exports.downvote = id => {
-  db.get('select score from posts where id = ?', id, (err, scoreObj) => {
-    db.run('update posts set score = ? where id = ?', scoreObj.score - 1, id, err => {
-      if (err) console.log(err);
-    })
-  })
+  return new Promise((resolve, reject) => {
+    db.query(`update posts set score = score - 1 where id = ?`, id, (err, result) => {
+      if(err) return reject(err);
+      resolve();
+    });
+  });
 };
