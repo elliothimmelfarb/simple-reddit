@@ -3,9 +3,9 @@
 // routes/posts.js  -  post router
 
 const express = require('express');
-let router = express.Router();
+const router = express.Router();
 
-let Post = require('../models/post');
+const Post = require('../models/post');
 
 router.get('/', (req, res) => {
   Post.getAll()

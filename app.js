@@ -18,9 +18,11 @@ app.use(express.static('public'));
 
 app.set('view engine', 'pug');
 
-app.use('/posts', require('./routes/posts'));
 
-console.log(Post);
+//////// ROUTES ///////
+
+app.use('/posts', require('./routes/posts'));
+app.use('/comments', require('./routes/comments'));
 
 app.get('/', (req, res) => {
   Post.getAll()
@@ -29,7 +31,6 @@ app.get('/', (req, res) => {
         post.createdAt = moment(post.createdAt).format('LLL');
         return post;
       });
-
       res.render('index', { posts: formattedPosts });
     })
     .catch(err => {
