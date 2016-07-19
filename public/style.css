@@ -6,16 +6,34 @@ body {
   margin-top: 11px;
 }
 
+.scoreDiv {
+
+}
+
 .inputArea {
   padding: 1px 1px;
   margin-bottom: 7px;
 }
 
-.postCard {
+/*.postCard {
   text-align: left;
   padding: 1px 1px;
   margin-bottom: 4px;
-}
+}*/
+
+/*.textArea {
+  margin-right: 15px;
+  display: flex;
+  margin-bottom: 1px;
+  margin-right: 1px;
+  margin-left: 18px;
+  padding: 9px;
+  position: relative;
+  bottom: 51px;
+  font-size: 21px;
+  box-shadow: darkgray;
+  word-wrap: normal;
+}*/
 
 .arrowBtn {
   padding: 0px;
@@ -30,15 +48,16 @@ body {
 }
 
 p.text {
-  margin-bottom: 0px;
+  /*margin-bottom: 0px;*/
 }
 
 p.createdAt {
-  font-size: 17px;
+  /*font-size: 17px;
+  display: inline-block;*/
 }
 
 .right {
-  display: inline-block;
+  /*display: inline-block;*/
 }
 
 .icon {
@@ -72,28 +91,16 @@ p.createdAt {
 }
 
 .scoreArea {
-  display: inline-block;
+  /* display: flex; */
   position: relative;
   top: 4px;
 }
 
-.well {
-  display: inline-block;
-  margin-bottom: 1px;
-  margin-left: 20px;
-  padding: 9px;
-  position: relative;
-  bottom: 13px;
-  font-size: 21px;
-  width: auto;
-  box-shadow: darkgray;
-  background-color: #4a4a4a;
-  word-wrap: normal;
-}
-
 .score {
   position: relative;
-  left: 4px;
+  left: -3px;
+  width: 40px;
+  text-align: center;
 }
 
 .arrow {
@@ -108,4 +115,6 @@ p.createdAt {
 
 .glyphicon-arrow-down:hover {
   color: blue;
+}
+blue;
 }

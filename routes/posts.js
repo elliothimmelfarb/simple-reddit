@@ -27,7 +27,6 @@ router.post('/', (req, res) => {
     });
 });
 
-
 // TODO: refactor to single route for voting
 router.put('/:id/upvote', (req, res) => {
     Post.upvote(req.params.id)
@@ -40,7 +39,7 @@ router.put('/:id/upvote', (req, res) => {
 })
 
 router.put('/:id/downvote', (req, res) => {
-    Post.upvote(req.params.id)
+    Post.downvote(req.params.id)
       .then(() => {
         res.send();
       })

@@ -53,21 +53,28 @@ body
             input.form-control.postContent(placeholder='Post Text...', required)
             button.btn.btn-default.post(type='submit') Add a Post!
             p WARNING: It will break if you upvote or downvote too quickly!  
+    .modal.fade(tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel')
+      .modal-dialog.modal-lg 
+        .modal-content
+          h1 MODAL!
     .displayArea
     .templateArea.hidden
       
       .jumbotron.postCard.template
-        .scoreArea
-          .upvoteDiv
-            button.upvote.btn.btn-default.arrowBtn
-              i.glyphicon.glyphicon-arrow-up.arrow
-          .scoreDiv 
-            span.score
-          .downvoteDiv
-            button.downvote.btn.btn-default.arrowBtn
-              i.glyphicon.glyphicon-arrow-down.arrow     
-        .well.well-lg 
-          p.text 
-        p.createdAt 
+        .row
+          .scoreArea.col-md-2.col-sm-2.col-xs-2
+            .upvoteDiv
+              button.upvote.btn.btn-default.arrowBtn
+                i.glyphicon.glyphicon-arrow-up.arrow
+            .scoreDiv 
+              span.score
+            .downvoteDiv
+              button.downvote.btn.btn-default.arrowBtn
+                i.glyphicon.glyphicon-arrow-down.arrow
+          .col-md-10.col-sm-10.col-xs-10            
+            .well.well-lg.textArea
+              p.text 
+          p.createdAt
+          button.btn.btn-default.viewComments View Comments 
          
   

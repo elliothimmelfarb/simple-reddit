@@ -17,14 +17,14 @@ db.query(`create table if not exists posts(
 exports.getAll = () => {
   return new Promise(function(resolve, reject) {
     db.query('select * from posts', function(err, posts) {
-      if(err) {
-        reject(err);
-      } else {
-        resolve(posts);
-      }
+      if(err) reject(err);
+      resolve(posts);
     });
   });
 };
+
+
+
 
 exports.create = postObj => {
   return new Promise((resolve, reject) => {

@@ -7,13 +7,19 @@ function init() {
   $('.newPostForm').submit(createPost);
   $('.displayArea').on('click', '.upvote', upvote);
   $('.displayArea').on('click', '.downvote', downvote);
+  $('.displayArea').on('click', '.test', modalTest);
+}
+
+function modalTest() {
+  console.log('modalTest');
+  $('.modal').modal();
 }
 
 function upvote() {
   let id = $(this).parent().parent().data('id');
   let $score = $(this).parent().parent().find('.score');
   $.ajax({
-    url: `/posts/${id}/downvote`,
+    url: `/posts/${id}/upvote`,
     method: 'PUT',
     success: () => {
       let score = parseInt($score.text());
@@ -26,7 +32,7 @@ function downvote() {
   let id = $(this).parent().parent().data('id');
   let $score = $(this).parent().parent().find('.score');
   $.ajax({
-    url: `/posts/${id}/upvote`,
+    url: `/posts/${id}/downvote`,
     method: 'PUT',
     success: () => {
       let score = parseInt($score.text());
