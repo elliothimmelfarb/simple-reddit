@@ -52,12 +52,12 @@ exports.upvote = id => {
       resolve();
     });
   });
-};
-exports.downvote = id => {
-  return new Promise((resolve, reject) => {
-    db.query(`update posts set score = score - 1 where id = ?`, id, (err, result) => {
-      if(err) return reject(err);
-      resolve();
-    });
-  });
-};
+// };
+// exports.downvote = id => {
+//   return new Promise((resolve, reject) => {
+//     db.query(`update posts set score = score - 1 where id = ?`, id, (err, result) => {
+//       if(err) return reject(err);
+//       resolve();
+//     });
+//   });
+// };
