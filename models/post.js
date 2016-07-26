@@ -60,4 +60,4 @@ exports.downvote = id => {
       resolve();
     });
   });
-}
+};
